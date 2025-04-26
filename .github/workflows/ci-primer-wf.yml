@@ -22,7 +22,21 @@ jobs:
       - name: Display the processor
         run: |
           import platform
-          print(platform.system()) 
-          print(platform.processor())
+          print (platform.system()) 
+          print (platform.processor())
         shell: python
+
+  comandos_windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: PowerShell
+        run: |
+          Get-Location
+          Get-ChildItem
+        shell: powershell
+
+      - name: Bash
+        run: pwd
+        shell: bash
 
