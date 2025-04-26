@@ -1,10 +1,12 @@
 name: Comandos de shell
 
-  #on: push
-  
+#on:
+#  schedule:
+#    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 * * * *'
+
 on:
-  schedule: 
-    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 * * * *'
+  repository_dispatch:
+    types: invocacion_desde_curl
 
 jobs:
   build_and_release:
@@ -26,7 +28,7 @@ jobs:
       - name: Display the processor
         run: |
           import platform
-          print (platform.system()) 
+          print (platform.system())
           print (platform.processor())
         shell: python
 
@@ -43,4 +45,3 @@ jobs:
       - name: Bash
         run: pwd
         shell: bash
-
